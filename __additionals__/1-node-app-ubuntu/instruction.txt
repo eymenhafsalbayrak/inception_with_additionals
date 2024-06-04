@@ -1,0 +1,23 @@
+
+readme.md dosyasindaki komutlari otomatik hale getirecek bir image creatleyecegiz
+
+1.adim -> ubuntunun icine girildi => docker pull ubuntu / docker run -it ubuntu
+-ubuntuyu devreye almamiz lazim
+-bu image'in base'inde hangi image kullanilacagini belirtmemiz lazim
+-KOMUT ARG
+-FROM ubuntu:18.04 => docker pull ubuntu:18.04
+
+2.adim -> 
+RUN apt-get update
+RUN apt-get install curl -y
+RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
+RUN apt-get install nodejs -y
+
+-image'in calismasi icin gereken aksiyonlar, uygulama icin gereken env
+
+-node index.js ->container aninda calismasi gereken bir komut
+
+-butun satirlar "in dockerfile" layer olarak tutulur docker icinde
+-bir satirda hata yapildiysa build yarida keser, duzeltildikten sonra tekrar build edildiginde, o layer bulunur ve ordan devam eder
+
+3.adim -> env degiskeni olsaydi ve uygulamada env gostermek istenilseydi
